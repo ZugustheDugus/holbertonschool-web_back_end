@@ -1,0 +1,1 @@
+ES6 Basics project by Hayden M Cooper for Holbertonschool
