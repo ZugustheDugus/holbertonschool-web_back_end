@@ -1,0 +1,1 @@
+README for the ES6_promise project for Holberton School by Hayden M Cooper
