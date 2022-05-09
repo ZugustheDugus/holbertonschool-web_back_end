@@ -6,5 +6,5 @@ export default function initializeRooms() {
     new ClassRoom(20),
     new ClassRoom(34),
   ];
-  console.log(res);
+  return res;
 }
