@@ -1,3 +1,4 @@
+/* eslint no-underscore-dangle: ["error", { "allowAfterThis": true }] */
 export default class Currency {
   constructor(code, name) {
     if (typeof (code) === 'string') {
