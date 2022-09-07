@@ -13,7 +13,7 @@ class FIFOCache(BaseCaching):
         self = super().__init__()
 
     def put(self, key, item):
-        """Adds item to the cache. Deletes first item in cache if too many present"""
+        """Adds item to cache. Deletes first item in cache if too many"""
         if key and item:
             self.cache_data[key] = item
 
