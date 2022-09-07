@@ -6,7 +6,7 @@ from base_caching import BaseCaching
 
 
 class LRUCache(BaseCaching):
-    """LIFOcache class inherits from BaseCaching"""
+    """LRUcache class inherits from BaseCaching"""
 
     def __init__(self):
         """Inits the module"""

@@ -1,19 +1,19 @@
 #!/usr/bin/python3
-"""Least Recently Used module for caching data"""
+"""Most Recently Used module for caching data"""
 
 
 from base_caching import BaseCaching
 
 
 class MRUCache(BaseCaching):
-    """LIFOcache class inherits from BaseCaching"""
+    """MRUcache class inherits from BaseCaching"""
 
     def __init__(self):
         """Inits the module"""
         self = super().__init__()
 
     def put(self, key, item):
-        """Adds item to cache. Deletes LRU item in cache if too many"""
+        """Adds item to cache. Deletes MRU item in cache if too many"""
         if key and item:
             self.cache_data[key] = item
 
