@@ -20,8 +20,8 @@ class LIFOCache(BaseCaching):
         dict_list = list(self.cache_data)
         lencache = len(self.cache_data)
         if (lencache > super().MAX_ITEMS):
-            del self.cache_data[dict_list[lencache - 1]]
-            print("DISCARD:", dict_list[lencache - 1])
+            del self.cache_data[dict_list[super().MAX_ITEMS - 1]]
+            print("DISCARD:", dict_list[super().MAX_ITEMS - 1])
 
     def get(self, key):
         """Retrieves the key value of an item"""
