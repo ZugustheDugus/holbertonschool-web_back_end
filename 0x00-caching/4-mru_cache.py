@@ -15,13 +15,14 @@ class MRUCache(BaseCaching):
     def put(self, key, item):
         """Adds item to cache. Deletes MRU item in cache if too many"""
         if key and item:
+            if key in self.cache_data:
+                self.cache_data.pop(key)
             self.cache_data[key] = item
-
-        dict_list = list(self.cache_data)
-        lencache = len(self.cache_data)
-        if (lencache > super().MAX_ITEMS):
-            del self.cache_data[dict_list[super().MAX_ITEMS - 1]]
-            print("DISCARD:", dict_list[super().MAX_ITEMS - 1])
+            if len(self.cache_data) > self.MAX_ITEMS:
+                dict_list = list(self.cache_data)
+                del_key = dict_list[self.MAX_ITEMS - 1]
+                self.cache_data.pop(del_key)
+                print("DISCARD:", del_key)
 
     def get(self, key):
         """Retrieves the key value of an item"""

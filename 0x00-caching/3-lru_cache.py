@@ -15,14 +15,14 @@ class LRUCache(BaseCaching):
     def put(self, key, item):
         """Adds item to cache. Deletes LRU item in cache if too many"""
         if key and item:
+            if key in self.cache_data:
+                self.cache_data.pop(key)
             self.cache_data[key] = item
-
-        dict_list = list(self.cache_data)
-        lencache = len(self.cache_data)
-
-        if (lencache > super().MAX_ITEMS):
-            del self.cache_data[dict_list[0]]
-            print("DISCARD:", dict_list[0])
+            if len(self.cache_data) > self.MAX_ITEMS:
+                dict_list = list(self.cache_data)
+                del_key = dict_list[0]
+                self.cache_data.pop(del_key)
+                print("DISCARD:", del_key)
 
     def get(self, key):
         """Retrieves the key value of an item"""
