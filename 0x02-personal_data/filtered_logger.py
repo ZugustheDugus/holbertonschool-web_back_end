@@ -3,13 +3,13 @@
 """
 
 
-from pickle import FALSE
 import re
 from typing import List
 import logging
 
 
 PII_FIELDS = ['name', 'email', 'phone', 'ssn', 'password']
+
 
 class RedactingFormatter(logging.Formatter):
     """ Redacting Formatter class
@@ -28,17 +28,19 @@ class RedactingFormatter(logging.Formatter):
         """Formats the message by filtering using
         filter_datum"""
         return filter_datum(self.fields, self.REDACTION,
-            super().format(record), self.SEPARATOR)
+                            super().format(record), self.SEPARATOR)
+
 
 def filter_datum(fields: List[str],
-                redaction: str,
-                message: str,
-                separator: str) -> str:
+                 redaction: str,
+                 message: str,
+                 separator: str) -> str:
     """Returns a message with sensitive data redacted"""
     for i in fields:
         message = re.sub(f'{i}=.+?{separator}',
-                        f'{i}={redaction}{separator}', message)
+                         f'{i}={redaction}{separator}', message)
     return message
+
 
 def get_logger() -> logging.Logger:
     """Function returns logger and handles user data
