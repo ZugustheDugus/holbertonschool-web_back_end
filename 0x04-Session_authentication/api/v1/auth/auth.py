@@ -2,6 +2,7 @@
 """ holds auth class """
 from flask import request
 from typing import TypeVar, List
+import os
 import re
 
 
@@ -27,5 +28,16 @@ class Auth:
         return None
 
     def current_user(self, request=None) -> TypeVar('User'):
-        """Implement later and is empty for now"""
+        """Implement later in BasicAuth"""
         return None
+
+    def session_cookie(self, request=None):
+        """Returns the session cookie value of request"""
+        if request is None:
+            return None
+        session_name = os.getenv('SESSION_NAME')
+        cookies = request.headers.get('Cookie')
+        if cookies is not None:
+            cookies = cookies.split("=")
+            if cookies[0] == session_name:
+                return cookies[1]
