@@ -1,0 +1,1 @@
+i18n project for Holberton School by Hayden M. Cooper
