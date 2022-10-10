@@ -1,0 +1,1 @@
+Basic Redis project for Holbertonschool by Hayden M. Cooper
