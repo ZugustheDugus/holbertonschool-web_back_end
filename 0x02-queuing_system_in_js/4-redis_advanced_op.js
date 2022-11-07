@@ -28,7 +28,7 @@ const hashValue = {
   "Paris": "2"
 };
 
-function main () {
+const main = () => {
   for (const [key, value] of Object.entries(hashValue)) {
     hashSet(keyHash, key, value);
   }
