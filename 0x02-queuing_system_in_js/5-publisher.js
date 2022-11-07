@@ -1,4 +1,3 @@
-import * as redis from 'redis';
 import { createClient } from "redis";
 
 const client = createClient({
